@@ -1,0 +1,106 @@
+h2 {
+    margin-left: 30px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3rem 2rem;
+    justify-content: space-around;
+}
+
+
+
+.cpu {
+    width: 200px;
+    height: 300px;
+    margin: 0.5rem;
+    position: relative;
+    
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    border: 1px solid rgba(245, 222, 179, 0);
+    border-radius: 10px;
+    background-color: rgb(36, 36, 36);
+
+    display: grid;
+    grid-template-rows: 300px;
+    /* grid-template-rows: 200px 100px;
+    grid-template-columns: auto; */
+
+    justify-items: center;
+    align-items: center;
+    overflow: hidden;
+    
+    
+    
+}
+
+.cpu:hover {
+    
+
+    &::before {
+        content: '';
+        display: block;
+        bottom: -100%;
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        bottom: calc(inherit - 300px);
+        border-radius: 10px;
+        background: linear-gradient( to top, rgb(69, 254, 78), rgba(217, 210, 210, 0));
+        animation: 0.5s select_background ease-out forwards;
+        
+        
+    }
+}
+
+@keyframes select_background {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+.cpu div {
+    margin: 0;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    opacity: 0;
+}
+
+.cpu:hover div {
+    animation: 0.5s show_description ease-in forwards;
+}
+
+@keyframes show_description {
+    to {
+        opacity: 1;
+        transform: translateY(-100px);
+    }
+}
+
+
+@media print {
+    html {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .banner {
+        position: relative;
+        background-color: rgb(255, 255, 255);
+    }
+
+    h2 {
+        color: black;
+    }
+
+    .products > .cpu {
+        background-color: rgb(124, 124, 124);
+    }
+}
+
+.cpu div ~ img {
+    filter: invert(100%);
+}

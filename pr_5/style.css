@@ -1,0 +1,494 @@
+html {
+    margin: 0;
+    color: whitesmoke;
+    font-family: 'Open Sans', arial, sans-serif;
+    background-color: black;
+    font-size: 150%;
+}
+
+:link {
+    color: rgb(0, 174, 255);
+    text-decoration: none;
+}
+
+:visited {
+    color: crimson;
+}
+
+:link:hover, :visited:hover {
+    color: rgb(234, 238, 10);
+}
+
+body {
+    margin: 0;
+}
+
+/* нет таких */
+/* h1 {
+    padding: 0% 10%;
+    font-size: 350%;
+} */
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+p b {
+    font-weight: 1000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.banner {
+    z-index: 100;
+    display: grid;
+    grid-template-columns: 200px auto 100px;
+    grid-template-rows: auto;
+    column-gap: 1rem;
+    align-items: center;
+    justify-items: center;
+
+
+    position: sticky;
+    width: 100%;
+    top: 0;
+    /* padding-right: 100%; */
+    background-color: rgb(0, 0, 0);
+}
+
+.logo {
+    position: relative;
+    display: block;
+    grid-column: 1 / 2;
+    
+}
+
+.login {
+    position: relative;
+    display: block;
+    grid-column: 3 / 4;
+    
+}
+
+.forms {
+    overflow: auto;
+    height: auto;
+    max-height: 1000%;
+    position: absolute;
+    display: none;
+    right: 0;
+    padding: 10px;
+    border-radius: 5px;
+    width: 700%;
+    background-color: rgb(44, 44, 44);
+}
+
+#logging_in, #sign_in, #register {
+    display: none;
+}
+
+#logging_in:checked ~ .forms {
+    display: block;
+    position: absolute;
+    
+}
+
+[for="sign_in"]:hover,  [for="register"]:hover, #sign_in:checked + label, #register:checked + label {
+    text-decoration: underline;
+}
+
+.sign_in_form, .register_form {
+    display: none;
+}
+
+#sign_in:checked ~ .sign_in_form,  #register:checked ~ .register_form{
+    display: block;
+}
+
+[for="agreed"] {
+    font-size: 0.8rem;
+}
+
+input:valid {
+    background-color: rgb(111, 225, 111);
+}
+
+input:invalid {
+    background-color: rgb(228, 54, 54);
+}
+
+input:focus {
+    background-color: white;
+}
+
+input {
+    border-radius: 10px;
+}
+
+::placeholder, input[type="datetime-local" i], textarea {
+    color: black;
+    font-family: inherit;
+}
+
+#pic {
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nav {
+    padding: 0 30px;
+}
+
+.navigate {
+    position: relative;
+    list-style: none;
+    padding-left: 0;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: nowrap;
+}
+
+.navigate > li {
+    display: block;
+    /* height: 100%; */
+    position: relative;
+    margin: auto;
+    flex-basis: 7em;
+    flex-grow: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-radius: 10px;
+}
+
+.navigate > li > a {
+    height: 100%;
+}
+
+.navigate > li:hover {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) -30%, rgba(128, 128, 128, 0.563), rgba(0, 0, 0, 0) 130%);
+}
+
+.navigate :link, .navigate :visited {
+    color: whitesmoke;
+}
+
+.submenu {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    padding-left: 0;
+    text-align: center;
+    border-radius: inherit;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.668));
+    
+
+    list-style: none;
+    padding-left: 0;
+    padding-top: 20px;
+    display: none;
+}
+
+.submenu > li:hover {
+    text-decoration: underline;
+}
+
+.navigate li:hover .submenu, .navigate a{
+    display: block;
+}
+
+
+.menu {
+    grid-column: 2 / 3;
+}
+
+[name="hide_menu"], [for="hide_menu"] {
+    display: none;
+}
+
+
+@media screen and (max-width: 1100px) {
+    [for="hide_menu"] {
+        height: 41px;
+        width: 60px;
+        display: block;
+    }
+
+    .menu {
+        justify-self: end;
+    }
+
+    .navigate {
+        flex-direction: column;
+        
+        visibility: hidden;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        width: 100vw;
+        height: calc(100vh - 78px);
+        background-color: rgba(0, 0, 0, 0.856);
+    }
+
+    .navigate > li {
+        flex-basis: auto;
+    }
+
+    #hide_menu:checked ~ .navigate {
+        visibility: visible;
+    }
+
+    [for="hide_menu"] > div {
+        position: absolute;
+        
+        background-color: wheat;
+        width: 60px;
+        height: 7px;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    [for="hide_menu"] > .sstripe {
+        margin-top: 17px;
+    }
+
+    [for="hide_menu"] > .tstripe {
+        margin-top: 34px;
+    }
+
+    .navigate a::before, .navigate a::after {
+        content: "\"";
+    }
+
+
+    #hide_menu:checked + [for="hide_menu"] > .fstripe {
+        transform: translateY(17px) rotate(-45deg);
+        background-color: red;
+    }
+
+    #hide_menu:checked + [for="hide_menu"] > .sstripe {
+        display: none;
+    }
+
+    #hide_menu:checked + [for="hide_menu"] > .tstripe {
+        transform: translateY(-17px) rotate(45deg);
+        background-color: red;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.WhatIsCPU {
+    display: block;
+    position: relative;
+    padding: 10% 5%;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(0, 0, 0)), 
+    url(Images/Start_processor.jpg);
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.WhatIsCPU h2 {
+    padding-top: 4rem;
+    margin-top: -4rem;
+}
+
+.WhatIsCPU p {
+    font-size: 1.1rem;
+    width: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Developers {
+    padding: 10% 5%;
+}
+
+.Developers h2 {
+    padding-top: 15%;
+    margin-top: -5%;
+}
+
+.Developers h3 {
+    padding-top: 4rem;
+    margin-top: -4rem;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .term {
+    padding: 10% 5%;
+}
+
+.term h2 {
+    padding-top: 15%;
+    margin-top: -5%;
+}
+
+.term dt {
+    padding: 40px 0px;
+}
+
+.term dd {
+    font-size: 0.8rem;
+    padding: 10px 0px;
+} */
+
+.how_it_works {
+    padding: 10% 5%;
+}
+
+.how_it_works h2 {
+    padding-top: 15%;
+    margin-top: -5%;
+}
+
+.how_it_works > iframe {
+    padding-top: 50px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+aside {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+}
+
+
+
+
+
+
+
+
+
+footer {
+    display: grid;
+    padding-left: 10px;
+    padding-top: 10%;
+    grid-template-columns: 200px auto 250px;
+    grid-template-rows: auto;
+    column-gap: 1rem;
+    font-size: 0.6rem;
+}
+
+footer > iframe {
+    grid-column: 3 / 4;
+    align-self: center;
+    justify-self: center;
+}
+
+footer > address {
+    grid-column: 1 / 2;
+    align-self: center;
+}

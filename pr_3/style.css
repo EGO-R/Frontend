@@ -1,0 +1,225 @@
+html {
+    margin: 0;
+    color: whitesmoke;
+    font-family: 'Open Sans', arial, sans-serif;
+    background-color: black;
+    font-size: 150%;
+}
+
+:link {
+    color: rgb(0, 174, 255);
+    text-decoration: none;
+}
+
+:visited {
+    color: crimson;
+}
+
+:link:hover, :visited:hover {
+    color: rgb(234, 238, 10);
+}
+
+body {
+    margin: 0;
+}
+
+/* нет таких */
+/* h1 {
+    padding: 0% 10%;
+    color: rgb(255, 170, 0);
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 350%;
+} */
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+p b {
+    font-weight: 1000;
+}
+
+
+
+
+
+.logo {
+    z-index: 100;
+    position: sticky;
+    top: 0;
+    padding-right: 100%;
+    background-color: rgb(0, 0, 0);
+    padding-top: 2px;
+    padding-left: 2px;
+}
+
+
+
+
+nav {
+    padding: 0 30px;
+}
+
+.navigate {
+    position: relative;
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.navigate > li {
+    position: relative;
+    margin: auto;
+    flex-basis: 10em;
+    flex-grow: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-radius: 10px;
+}
+
+.navigate > li:hover {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) -30%, rgba(128, 128, 128, 0.563), rgba(0, 0, 0, 0) 130%);
+}
+
+.navigate :link, .navigate :visited {
+    color: whitesmoke;
+}
+
+.submenu {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    padding-left: 0;
+    text-align: center;
+    border-radius: inherit;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.668));
+    
+
+    list-style: none;
+    padding-left: 0;
+    padding-top: 20px;
+    display: none;
+}
+
+.submenu > li:hover {
+    text-decoration: underline;
+}
+
+.navigate li:hover .submenu, .navigate a{
+    display: block;
+}
+
+
+
+
+
+.WhatIsCPU {
+
+
+    /* убрать */
+    float: none; 
+
+
+    display: block;
+    position: relative;
+    padding: 10% 5%;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(0, 0, 0)), 
+    url(Images/Start_processor.jpg);
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.WhatIsCPU h2 {
+    padding-top: 4rem;
+    margin-top: -4rem;
+}
+
+.WhatIsCPU p {
+    font-size: 1.1rem;
+    width: 50%;
+}
+
+
+
+
+
+
+
+.Developers {
+    padding: 10% 5%;
+}
+
+.Developers h2 {
+    padding-top: 15%;
+    margin-top: -5%;
+}
+
+.Developers h3 {
+    padding-top: 4rem;
+    margin-top: -4rem;
+}
+
+
+/* .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 50%;
+} */
+
+/* вернуть */
+.row {
+    position: relative;
+    display: block;
+}
+
+.pic {
+    float: left;
+}
+
+
+
+
+
+.term {
+    padding: 10% 5%;
+}
+
+.term h2 {
+    padding-top: 15%;
+    margin-top: -5%;
+}
+
+.term dt {
+    padding: 40px 0px;
+}
+
+.term dd {
+    font-size: 0.8rem;
+    padding: 10px 0px;
+}
+
+
+
+
+
+aside {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+}
+
+footer {
+    font-size: 0.6rem;
+}

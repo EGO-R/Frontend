@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    position: relative;
+    display: grid;
+
+    --logo-height: 7vh;
+    --logo-width: calc(var(--logo-height) * 1.22);
+
+
+    grid-template-rows: calc(var(--logo-height) + 5px) 100px auto 100px;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+        "Banner"
+        "Header"
+        "Products"
+        "Footer";
+}
+
+body > h2 {
+    grid-area: Header;
+    margin-left: 30px;
+}
+
+
+
+.all_products {
+    grid-area: Products;
+    display: grid;
+    justify-self: center;
+    position: relative;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(3, 300px);
+    gap: 15px;
+    width: 75%;
+    margin: 3rem 2rem;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 1200px) {
+    .all_products {
+        grid-template-columns: repeat(3, 200px);
+        grid-template-rows: repeat(4, 300px);
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .all_products {
+        grid-template-columns: repeat(2, 200px);
+        grid-template-rows: repeat(6, 300px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .all_products {
+        grid-template-columns: repeat(1, 200px);
+        grid-template-rows: repeat(12, 300px);
+    }
+}
+
+
+
+.cpu {
+    cursor: pointer;
+    width: 200px;
+    height: 300px;
+    margin: 0.5rem;
+    position: relative;
+    
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    border: 1px solid rgba(245, 222, 179, 0);
+    border-radius: 10px;
+    background-color: rgb(36, 36, 36);
+
+    display: grid;
+    grid-template-rows: 300px;
+    /* grid-template-rows: 200px 100px;
+    grid-template-columns: auto; */
+
+    justify-items: center;
+    align-items: center;
+    overflow: hidden;
+    
+    
+    
+}
+
+.cpu:hover {
+    
+
+    &::before {
+        content: '';
+        display: block;
+        bottom: -100%;
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        border-radius: 10px;
+        background: linear-gradient( to top, rgb(69, 254, 78), rgba(217, 210, 210, 0));
+        animation: 0.5s select_background ease-out forwards;
+        
+        
+    }
+}
+
+@keyframes select_background {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+.cpu div {
+    margin: 0;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    opacity: 0;
+}
+
+.cpu:hover div {
+    animation: 0.5s show_description ease-in forwards;
+}
+
+@keyframes show_description {
+    to {
+        opacity: 1;
+        transform: translateY(-100px);
+    }
+}
+
+
+@media print {
+    html {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .banner {
+        position: relative;
+        background-color: rgb(255, 255, 255);
+    }
+
+    h2 {
+        color: black;
+    }
+
+    .products > .cpu {
+        background-color: rgb(124, 124, 124);
+    }
+}
